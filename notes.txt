@@ -1,0 +1,55 @@
+
+// all api endpoints are currently working at the moment
+// now i will need to protect the endpoints to ensure that no one will mess with them to gain access
+//even though the data that we have is not as importand and will only contain one use 
+// it will be important to make sure that i secure the whole thing
+
+// the next thing i would need to do is to implement the rateLimiting middleware to the api to prevent anyoe
+//from spamming the sites api and cause any damage that would be fatal to any extent
+
+// the next thing i will need to do is to implement the authorization and 
+
+// after connecting all the endpoints and verifying that they all recieve the data that they need to display the data
+// i need to not forget to connect the backend email functionality which should be a simple task to do
+//upon finishing that, the app should be hosted without the frontend, so that those with the mobile phones
+// can view the site and those that have computers will have to wait 
+// then i will start working on the frontend of the computer media query to start with 
+// the admin panel will be a thing i shall work with on my spare time on the weekends
+// the front end design is almost done what i need to do next is to do the mobile version
+// i need to make sure that i finnish this project to get the maximum motivation that i need to finnish
+// the rest of the projects that i start making
+
+// i have a paid project coming through soon and i am excited to take it on, it is something i always wanted
+// and will push me to do the best at all times in many  ways 
+
+// the next project i should not hesitate to make is the word guessing game which should be fun to make 
+// i need to decide on the tech stack i want to use 
+// after that i want to go on and make the chat application i wanted to make 
+// this should be a project that will teach me more about sockets and more and how they work fun
+
+// finally the projects i need to get into is clones , clones should be good projects for my portfolio 
+// in many ways
+
+// and then next year i can push foward to learning about moile app dev 
+// that should get me going in terms of the jave industry and it should help me choose which side will choose
+
+
+
+<div className="PhoneNumber">
+            <div className="ContactHeader">Phone Number:</div>
+            <div className="PersonalInfo">
+              <AiFillPhone className="contactIcon" /> +27781402245
+            </div>
+          </div>
+          <div className="Email">
+            <div className="ContactHeader">Email:</div>
+            <div className="PersonalInfo">
+              <AiFillMail className="contactIcon" /> iii409475@gmail.com
+            </div>
+          </div>
+          <div className="Github">
+            <div className="ContactHeader">Github:</div>
+            <div className="PersonalInfo">
+              <BiLogoGithub className="contactIcon" /> kingismail
+            </div>
+          </div>
