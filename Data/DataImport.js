@@ -1,13 +1,13 @@
 import express from "express";
-import ProjectData from "./Data/ProjectData.js";
-import Project from "./Models/ProjectModel.js";
+import ProjectData from "./ProjectData.js";
+import Project from "../Models/ProjectModel.js";
 import asyncHandler from "express-async-handler";
-import LanguageData from "./Data/LanguageData.js";
-import Languages from "./Models/LanguageModel.js";
-import AboutData from "./Data/AboutData.js";
-import About from "./Models/AboutModel.js";
-import Contact from "./Models/ContactModel.js";
-import ContactData from "./Data/ContactData.js";
+import LanguageData from "./LanguageData.js";
+import Languages from "../Models/LanguageModel.js";
+import AboutData from "./AboutData.js";
+import About from "../Models/AboutModel.js";
+import Contact from "../Models/ContactModel.js";
+import ContactData from "./ContactData.js";
 
 const ImportData = express.Router();
 
