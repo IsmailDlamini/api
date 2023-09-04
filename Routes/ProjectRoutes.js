@@ -1,21 +1,19 @@
 import express from "express";
-import asyncHandler from "express-async-handler";
-import Project from "../Models/ProjectModel.js";
+import {
+  createProject,
+  deleteProject,
+  getProjects,
+  updateProject,
+} from "../controllers/projectControllers";
 
 const projectRoute = express.Router();
 
-// PROJECT INFORMATION ROUTE
+projectRoute.get("/", getProjects); // GET ALL PROJECTS FROM THE DATABASE
 
-projectRoute.get(
-  "/Projects",
-  asyncHandler(async (req, res) => {
-    const projects = await Project.find({});
-    res.json(projects);
-  })
-);
+projectRoute.delete("/:id", deleteProject); //DELETE A PROJECT FROM THE DATABASE
 
+projectRoute.post("/", createProject); // CREATE A NEW PROJECT INSIDE THE DATABASE
 
-projectRoute.delete("/")
+projectRoute.put("/:id", updateProject); // UPDATE THE DATA OF A CERTAIN PROJECT IN THE DATABASE
 
-
-export default projectRoute
+export default projectRoute;

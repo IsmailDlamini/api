@@ -7,31 +7,39 @@ import ImportData from "./DataImport.js"
 import projectRoute from "./Routes/ProjectRoutes.js"
 import AboutRoutes from "./Routes/AboutRoutes.js"
 import mailgun from "mailgun-js"
+import languageRoute from "./Routes/LanguageRoutes.js"
+import contactRoute from "./Routes/ContactRoutes.js"
 
 const app = express()
 dotenv.config()
 connectToDatabase();
 
 app.use(express.json()); 
+// IMPORT THE BODY PARSER FOR THE INFORMATION BODY INFORMATION 
+// AND IMPORT THE FORM PARSER TOO, INSTALL IF NECESSARY
 
-app.use(cors());
+app.use(cors());  // setup cors to the portfolio frontend and the admin frontend after hosting of admin panel
 
 const importPath = "/api/import"
-const aboutDataPath = "/Info"
+const projectsMainRoute = "/api/Projects"
+const languagesMainRoute = "/api/Languages"
+const contactsMainRoute = "/api/Contacts"
+const aboutMainRoute = "/api/About"
 
 app.use(importPath, ImportData)
-app.use(projectRoute)
-app.use(aboutDataPath, AboutRoutes)
+app.use(projectsMainRoute, projectRoute)
+app.use(languagesMainRoute, languageRoute)
+app.use(contactsMainRoute, contactRoute)
+app.use(aboutMainRoute, AboutRoutes)
 
 app.get('/', (req, res) => {
-  res.send('running')
+  res.send('The api is running')
 })
 
 const mg = mailgun({ apiKey: process.env.MAILAPIKEY, domain: process.env.MAILDOMAIN });
 
 app.use(express.json());
 
-// Set up Nodemailer transporter
 app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
@@ -53,6 +61,4 @@ app.post('/send-email', (req, res) => {
   });
 });
 
-const port = 5000;
-
-app.listen(5000, console.log(`server is running in port ${port}`))
+app.listen(port, console.log(`server is running in port ${port}`))
