@@ -15,4 +15,7 @@ projectRoute.get(
 );
 
 
+projectRoute.delete("/")
+
+
 export default projectRoute
