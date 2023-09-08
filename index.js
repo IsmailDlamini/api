@@ -1,64 +1,61 @@
 /* eslint-env node */
-import express from "express"
-import cors from "cors"
-import connectToDatabase from "./MongoDB/mongoSetup.js"
-import dotenv from "dotenv"
-import ImportData from "./Data/DataImport.js"
-import projectRoute from "./Routes/ProjectRoutes.js"
-import AboutRoutes from "./Routes/AboutRoutes.js"
-import mailgun from "mailgun-js"
-import languageRoute from "./Routes/LanguageRoutes.js"
-import contactRoute from "./Routes/ContactRoutes.js"
+import express from "express";
+import cors from "cors";
+import connectToDatabase from "./MongoDB/mongoSetup.js";
+import dotenv from "dotenv";
+import ImportData from "./Data/DataImport.js";
+import projectRoute from "./Routes/ProjectRoutes.js";
+import AboutRoutes from "./Routes/AboutRoutes.js";
+import mailgun from "mailgun-js";
+import languageRoute from "./Routes/LanguageRoutes.js";
+import contactRoute from "./Routes/ContactRoutes.js";
+import userRoute from "./Routes/UserRoutes.js";
 
-const app = express()
-dotenv.config()
+const app = express();
+dotenv.config();
 connectToDatabase();
+app.use(express.json());
+app.use(cors());
 
-app.use(express.json()); 
-// IMPORT THE BODY PARSER FOR THE INFORMATION BODY INFORMATION 
-// AND IMPORT THE FORM PARSER TOO, INSTALL IF NECESSARY
+app.use("/api/Import", ImportData);
+app.use("/api/Projects", projectRoute);
+app.use("/api/Languages", languageRoute);
+app.use("/api/Contacts", contactRoute);
+app.use("/api/About", AboutRoutes);
+app.use("/api/Users", userRoute);
 
-app.use(cors());  // setup cors to the portfolio frontend and the admin frontend after hosting of admin panel
+app.get("/", (req, res) => {
+  res.send("The api is running");
+});
 
-const importPath = "/api/import"
-const projectsMainRoute = "/api/Projects"
-const languagesMainRoute = "/api/Languages"
-const contactsMainRoute = "/api/Contacts"
-const aboutMainRoute = "/api/About"
-
-app.use(importPath, ImportData)
-app.use(projectsMainRoute, projectRoute)
-app.use(languagesMainRoute, languageRoute)
-app.use(contactsMainRoute, contactRoute)
-app.use(aboutMainRoute, AboutRoutes)
-
-app.get('/', (req, res) => {
-  res.send('The api is running')
-})
-
-const mg = mailgun({ apiKey: process.env.MAILAPIKEY, domain: process.env.MAILDOMAIN });
+const mg = mailgun({
+  apiKey: process.env.MAILAPIKEY,
+  domain: process.env.MAILDOMAIN,
+});
 
 app.use(express.json());
 
-app.post('/send-email', (req, res) => {
+const port = process.env.PORT || 3000;
+
+app.post("/send-email", (req, res) => {
   const { name, email, message } = req.body;
 
   const data = {
     from: `${name} <${email}>`,
-    to: 'iii409475@gmail.com', 
-    subject: 'Message from Portfolio',
+    to: "iii409475@gmail.com",
+    subject: "Message from Portfolio",
     text: message,
   };
 
   mg.messages().send(data, (error, body) => {
     if (error) {
-      console.error('Error sending email:', error);
-      res.status(500).send('Error sending email');
+      console.error("Error sending email:", error);
+      res.status(500).send("Error sending email");
     } else {
-      console.log('Email sent:', body);
-      res.status(200).send('Email sent successfully');
+      console.log("Email sent:", body);
+      res.status(200).send("Email sent successfully");
     }
   });
 });
 
-app.listen(port, console.log(`server is running in port ${port}`))
+app.listen(port, console.log(`server is running in port ${port}`));

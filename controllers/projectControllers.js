@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import Project from "../Models/ProjectModel";
+import Project from "../Models/ProjectModel.js";
 
 //GET ALL THE PROJECTS FROM THE DATABASE
 
@@ -21,7 +21,7 @@ export const deleteProject = asyncHandler(async (req, res) => {
     const project = await Project.findByIdAndDelete(id);
 
     if (!project) {
-      req.status(404);
+      res.status(404);
       throw new Error(`No product with id : ${id} found`);
     }
 

@@ -4,7 +4,7 @@ import {
   deleteLanguage,
   getLanguages,
   updateLanguage,
-} from "../controllers/languageController";
+} from "../controllers/languageController.js";
 
 const languageRoute = express.Router();
 

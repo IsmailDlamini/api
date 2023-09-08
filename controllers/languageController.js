@@ -1,4 +1,4 @@
-import Languages from "../Models/LanguageModel";
+import Languages from "../Models/LanguageModel.js";
 import asyncHandler from "express-async-handler";
 
 // FIND AND RETURN ALL THE LANGUAGES IN THE DATABASE

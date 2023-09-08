@@ -1,5 +1,5 @@
 import asyncHandler from "express-async-handler";
-import Contact from "../Models/ContactModel";
+import Contact from "../Models/ContactModel.js";
 
 // GET THE CONTACT DATA FROM THE DATABASE
 

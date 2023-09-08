@@ -1,6 +1,6 @@
 import asyncHandler from "express-async-handler";
 
-import About from "../Models/AboutModel";
+import About from "../Models/AboutModel.js";
 
 // GET THE ABOUT DATA FROM THE DATABASE
 

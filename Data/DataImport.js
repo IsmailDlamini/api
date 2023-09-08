@@ -55,4 +55,15 @@ ImportData.post(
   })
 );
 
+// IMPORT USER DATA
+
+ImportData.post(
+  "Users",
+  asyncHandler(async (req, res) => {
+    await User.deleteMany({});
+    const importUsers = await User.insertMany(Users);
+    res.send({ importUsers });
+  })
+);
+
 export default ImportData;
