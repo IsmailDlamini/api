@@ -1,16 +1,20 @@
-import jsonwebtoken from "jsonwebtoken"
-
-
-
-// THIS IS WHERE WE WILL BE VERIFYING THE TOKEN THAT IS NEEDED TO ACCESS THE DATA
+import jwt from "jsonwebtoken";
 
 // LOGIC
-export const verifyToken = async (req, res) => {
+export const verifyToken = async (req, res, next) => {
+  const headerAvailable = req.headers.authorization;
 
-    const headerAvailable = req.header.authorization
+  if (headerAvailable && headerAvailable.startsWith("Bearer ")) {
+    try {
+      const token = req.headers.authorization.split(" ")[1];
 
-    if(headerAvailable && headerAvailable.startsWith("Bearer ")){
-        
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+      req.user = await User.findById(decoded.id).select("-password");
+      next();
+    } catch (error) {
+      res.status(401);
+      throw new Error("incorrect token,  not authorized");
     }
-
-}
+  }
+};
