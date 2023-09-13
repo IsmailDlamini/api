@@ -1,7 +1,7 @@
-import User from "../Models/UserModel";
+import User from "../Models/UserModel.js";
 import asyncHandler from "express-async-handler";
-import ComparePasswords from "../utils/comparePasswords";
-import { generateToken } from "../utils/generateToken";
+import ComparePasswords from "../utils/comparePasswords.js";
+import generateToken from "../utils/generateToken.js";
 
 // lOGIN CONTROLLER
 
