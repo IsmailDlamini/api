@@ -25,7 +25,7 @@ app.use("/api/About", AboutRoutes);
 app.use("/api/Users", userRoute);
 
 app.get("/", (req, res) => {
-  res.send("This is Ismail Dlamini's API and it is Running a portfolio and karabo and loyiso");
+  res.send("This is Ismail Dlamini's API and it is Running a portfolio SITE");
 });
 
 const mg = mailgun({
