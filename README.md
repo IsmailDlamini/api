@@ -43,9 +43,9 @@ This is my portfolio Rest Api That handles data from the data(mongodb) to the fr
   -Response Format
     -JSON
 
-  -Possible Errors
-    --Error 500 - Internal server error
-    --Error 404 - Page not found --> check endpoint for possible spelling errors
+  #Possible Errors
+  -Error 500 - Internal server error
+  -Error 404 - Page not found --> check endpoint for possible spelling errors
   
 
 ### Endpoints
