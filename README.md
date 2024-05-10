@@ -1,6 +1,6 @@
 # API Name
 
-[Provide a brief description of the API, its purpose, and main features.]
+This is my portfolio Rest Api That handles data from the data(mongodb) to the frontend(React)
 
 ## Table of Contents
 
@@ -18,32 +18,53 @@
 
 ### Prerequisites
 
-[Specify any prerequisites or dependencies required to use the API, such as programming languages, frameworks, or software.]
+-dependencies:
+  -bcrypt@5.1.1
+  -cors@2.8.5
+  -dotenv@16.3.1
+  -express@4.18.2
+  -express-async-handler@1.2.0
+  -jsonwebtoken@9.0.2
+  -mailgun-js@0.22.0
+  -mongodb@5.8.1
+  -mongoose@7.4.5
 
 ### Installation
 
-[Provide instructions for installing or setting up the API, including any configuration steps.]
+--no installation instruction data--
 
 ## Usage
 
-[Explain how to use the API, including details about endpoints, request/response formats, parameters, and possible errors.]
+-Endpoints
+  -https://api-sigma-red-16.vercel.app/  --> Home Endpoint
+  -https://api-sigma-red-16.vercel.app/Api/projects --> Projects Endpoint
+  -https://api-sigma-red-16.vercel.app/Api/About --> About Me endpoint
+
+  -Response Format
+    -JSON
+
+  -Possible Errors
+    -Error 500 - Internal server error
+    -Error 404 - Page not found --> check endpoint for possible spelling errors
+  
 
 ### Endpoints
 
 [Document the available endpoints of the API, along with their HTTP methods, paths, and descriptions.]
+-
+  -https://api-sigma-red-16.vercel.app/  --> Method --> GET
+  -https://api-sigma-red-16.vercel.app/Api/projects --> Method --> Get
+  -https://api-sigma-red-16.vercel.app/Api/About --> About Me endpoint --> Method --> Get
+
 
 ### Authentication
 
-[Describe the authentication mechanism used by the API, if any, and how clients can authenticate their requests.]
-
-## Examples
-
-[Provide example requests and responses to illustrate how to interact with the API.]
+No authentication needed, still under development
 
 ## Contributing
 
-[Explain how others can contribute to the development of the API, including guidelines for submitting bug reports, feature requests, or code contributions.]
+To contribute or report errors, Please send and email to iii409475@gmail.com
 
 ## License
 
-[Specify the license under which the API is released.]
+GNU licence
