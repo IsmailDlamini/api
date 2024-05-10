@@ -50,7 +50,6 @@ This is my portfolio Rest Api That handles data from the data(mongodb) to the fr
 
 ### Endpoints
 
-[Document the available endpoints of the API, along with their HTTP methods, paths, and descriptions.]
 -
   -https://api-sigma-red-16.vercel.app/  --> Method --> GET
   -https://api-sigma-red-16.vercel.app/Api/projects --> Method --> Get
